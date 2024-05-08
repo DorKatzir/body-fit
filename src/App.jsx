@@ -1,12 +1,15 @@
 
+import Hero from './components/Hero';
+import Generator from './components/Generator';
+import Workout from './components/Workout';
+
 function App() {
- 
 
   return (
     <>
-      <h1 className="text-3xl font-bold">
-        Hello from Fitness App
-      </h1>
+      <Hero />
+      <Generator />
+      <Workout />
     </>
   )
 }

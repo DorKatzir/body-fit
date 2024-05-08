@@ -1,7 +1,10 @@
+
+import SectionWrapper from "./SectionWrapper";
+
 export default function Generator() {
     return (
-        <>
-            <h2>Generator</h2>
-        </>
+        <SectionWrapper header={"Generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}>
+            <p>Section</p>
+        </SectionWrapper>
     )
 }

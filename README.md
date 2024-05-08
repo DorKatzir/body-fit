@@ -1,2 +1,2 @@
-# Body Fit 
-### Fitness App Created with React.JS Tailwind Css + API
+# Body-Fit 
+### Gym Training App Created with React.JS & Tailwind 

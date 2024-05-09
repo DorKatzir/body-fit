@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import SectionWrapper from "./SectionWrapper";
-import { WORKOUTS } from './../utils/swoldier';
+import SectionWrapper from './SectionWrapper'
+import { WORKOUTS } from './../utils/swoldier'
+import { useState } from 'react'
 
 function Header ({index, title, description}){
     return (
@@ -15,8 +16,16 @@ function Header ({index, title, description}){
 }
 
 export default function Generator() {
+
+    const [ showModal, setShowModal ] = useState(false)
+
+    function toggleModal(){
+        setShowModal(!showModal)
+    }
+
     return (
         <SectionWrapper header={"Generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}>
+
             {/* Header 01 */}
             <Header index={'01'} title={'Pick your poison'} description={'Select the workout you wish to endore.'}/>
             {/* Workout Buttons */}
@@ -36,15 +45,18 @@ export default function Generator() {
             </div>
             
             {/* Header 02 */}
-            <Header index={'02'} title={'Lock on targets'} description={'Select the musceles judged for annihilation.'}/>
-            {/*  */}
-            <div className="">
-                <div>
+            <Header index={'02'} title={'Lock on targets'} description={'Select the muscles judged for annihilation.'}/>
+            {/* Select muscle groups */}
+            <div className="bg-slate-950 border border-blue-400 rounded-lg flex flex-col transition-all duration-300">
+                <button onClick={toggleModal} className="relative flex items-center justify-center p-3">
                     <p>
                         Select muscle groups
                     </p>
-                    <i className="fa-solid fa-caret-down"></i>
-                </div>
+                    <i className="fa-solid fa-caret-down absolute right-3 top-1/2 -translate-y-1/2"></i>
+                </button>
+                {
+                    showModal && <div className=''>Modal</div>
+                }
             </div>
 
         </SectionWrapper>

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import SectionWrapper from "./SectionWrapper";
+import { WORKOUTS } from './../utils/swoldier';
 
 function Header ({index, title, description}){
     return (
@@ -15,8 +16,16 @@ function Header ({index, title, description}){
 
 export default function Generator() {
     return (
-        <SectionWrapper apper header={"Generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}>
+        <SectionWrapper header={"Generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}>
             <Header index={'01'} title={'Pick your poison'} description={'Select the workout you wish to endore.'}/>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {
+                    Object.keys(WORKOUTS).map((type, typeIndex) => { 
+                        return (
+                            <button key={typeIndex}><p>{type}</p></button> 
+                        )}) 
+                }
+            </div>
         </SectionWrapper>
     )
 }

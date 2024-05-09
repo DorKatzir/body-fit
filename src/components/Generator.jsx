@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import SectionWrapper from './SectionWrapper'
-import { WORKOUTS } from './../utils/swoldier'
+import { SCHEMES, WORKOUTS } from './../utils/swoldier'
 import { useState } from 'react'
 
 function Header ({index, title, description}){
@@ -18,6 +19,9 @@ function Header ({index, title, description}){
 export default function Generator() {
 
     const [ showModal, setShowModal ] = useState(false)
+    const [ poison, setPoison ] = useState('individual')
+    const [ muscles, setMuscles ] = useState([])
+    const [ goals, setGoals ] = useState('strength_power')
 
     function toggleModal(){
         setShowModal(!showModal)
@@ -46,7 +50,7 @@ export default function Generator() {
             
             {/* Header 02 */}
             <Header index={'02'} title={'Lock on targets'} description={'Select the muscles judged for annihilation.'}/>
-            {/* Select muscle groups */}
+            {/* Select Workout muscle groups */}
             <div className="bg-slate-950 border border-blue-400 rounded-lg flex flex-col transition-all duration-300">
                 <button onClick={toggleModal} className="relative flex items-center justify-center p-3">
                     <p>
@@ -56,6 +60,24 @@ export default function Generator() {
                 </button>
                 {
                     showModal && <div className=''>Modal</div>
+                }
+            </div>
+
+            {/* Header 03 */}
+            <Header index={'03'} title={'Become Juggernaut'} description={'Select your ultimate objective.'}/>
+            {/* SCHEMES */}
+            <div className="grid grid-cols-3 gap-4">
+                {
+                    Object.keys(SCHEMES).map((scheme, schemeIndex) => { 
+                        return (
+                            <button 
+                            className='bg-slate-950 border border-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg'
+                            key={schemeIndex}>
+                                <p className="capitalize">
+                                    {scheme.replaceAll('_', ' ')}
+                                </p>
+                            </button> 
+                        )}) 
                 }
             </div>
 

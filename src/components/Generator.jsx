@@ -21,7 +21,7 @@ export default function Generator() {
     const [ showModal, setShowModal ] = useState(false)
     const [ poison, setPoison ] = useState('individual')
     const [ muscles, setMuscles ] = useState([])
-    const [ goals, setGoals ] = useState('strength_power')
+    const [ goal, setGoal ] = useState('strength_power')
 
     function toggleModal(){
         setShowModal(!showModal)
@@ -73,9 +73,9 @@ export default function Generator() {
                     Object.keys(SCHEMES).map((scheme, schemeIndex) => { 
                         return (
                             <button onClick={()=>{
-                                setGoals(scheme)
+                                setGoal(scheme)
                             }}
-                            className={`bg-slate-950 border duration-200 hover:border-blue-600 py-3 rounded-lg ${scheme === goals ? 'border-blue-600' : 'border-blue-400'}`}
+                            className={`bg-slate-950 border duration-200 hover:border-blue-600 py-3 rounded-lg ${scheme === goal ? 'border-blue-600' : 'border-blue-400'}`}
                             key={schemeIndex}>
                                 <p className="capitalize">
                                     {scheme.replaceAll('_', ' ')}

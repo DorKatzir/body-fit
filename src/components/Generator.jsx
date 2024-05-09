@@ -37,8 +37,10 @@ export default function Generator() {
                 {
                     Object.keys(WORKOUTS).map((type, typeIndex) => { 
                         return (
-                            <button 
-                            className='bg-slate-950 border border-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg'
+                            <button onClick={()=>{
+                                setPoison(type)
+                            }}
+                            className={`bg-slate-950 border duration-200 hover:border-blue-600 py-3 rounded-lg ${type === poison ? 'border-blue-600' : 'border-blue-400'}`}
                             key={typeIndex}>
                                 <p className="capitalize">
                                     {type.replaceAll('_', ' ')}
@@ -70,8 +72,10 @@ export default function Generator() {
                 {
                     Object.keys(SCHEMES).map((scheme, schemeIndex) => { 
                         return (
-                            <button 
-                            className='bg-slate-950 border border-blue-400 duration-200 hover:border-blue-600 py-3 rounded-lg'
+                            <button onClick={()=>{
+                                setGoals(scheme)
+                            }}
+                            className={`bg-slate-950 border duration-200 hover:border-blue-600 py-3 rounded-lg ${scheme === goals ? 'border-blue-600' : 'border-blue-400'}`}
                             key={schemeIndex}>
                                 <p className="capitalize">
                                     {scheme.replaceAll('_', ' ')}
